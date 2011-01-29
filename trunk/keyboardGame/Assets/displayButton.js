@@ -7,7 +7,7 @@ function OnGUI() {
 	
 	//if(Time.time % 2 < 1){
 	
-		if(GUI.Button(Rect(Screen.width/2,400,300,100),"Start Button")){
+		if(GUI.Button(Rect(Screen.width/2-150,Screen.height/2-50,300,100),"Start Button")){
 			
 			print("On to next Scene");
 		
