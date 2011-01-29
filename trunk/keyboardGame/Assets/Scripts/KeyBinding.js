@@ -3,9 +3,9 @@
 public var key : KeyCode;
 public var average : AverageKeys;
 
-function GUI () {
+function OnGUI () {
 	var e : Event = Event.current;
-    if ((e.keyCode == key)) {
+    if (e.isKey && (e.keyCode == key) && !average. ballDropped) {
 		average.GatherKey(transform.position);
     }
 }
