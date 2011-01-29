@@ -1,10 +1,11 @@
-@script RequireComponent(SphereCollider)
+@script RequireComponent(Collider)
 
 public var key : KeyCode;
 public var average : AverageKeys;
 
-function Update () {
+function GUI () {
 	var e : Event = Event.current;
     if ((e.keyCode == key)) {
+		average.GatherKey(transform.position);
     }
 }
