@@ -1,16 +1,30 @@
-public var row1Keys : KeyCode[];
-public var row2Keys : KeyCode[];
-public var row3Keys : KeyCode[];
-public var row4Keys : KeyCode[];
+public var keyCollectDuration : float = 0.5;
+public var canonBall : GameObject;
 
 private var keyHit : boolean = false;
-private var hitTime : float = 0;
-private var xIncrement : float;
-private var zIncrement : float;
+private var ballDropped : boolean = false;
+private var startTime : float;
+private var hitTimes : int = 0;
+private var location : Vector3 = new Vector3(0, 0, 0);
 
-function Start() {
-	
+function Update() {
+	if(!ballDropped && keyHit && (Time.time - startTime) > keyCollectDuration) {
+		location /= hitTimes;
+		canonBall.transform.position = location;
+		canonBall.rigidbody.isKinematic = false;
+		Instantiate(canonBall, location, Quaternion.identity);
+		ballDropped = true;
+	}
 }
 
-function Update () {
+function GatherKey(point : Vector3) {
+	if(!ballDropped) {
+		location += point;
+		hitTimes += 1;
+		
+		if(!keyHit) {
+			keyHit = true;
+			startTime = Time.time;
+		}
+	}
 }
