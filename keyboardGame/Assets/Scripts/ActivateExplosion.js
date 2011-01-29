@@ -1,13 +1,18 @@
 public var detonators : DetonatorComponent[];
 
-function Start () {
-	for( var detonate : DetonatorComponent in detonators) {
-		detonate.on = false;
+function Update() {
+	var isAllDetonatorsGone : boolean = true;
+	for(var checkNull : DetonatorComponent in detonators) {
+	
+		if(checkNull != null) {
+			isAllDetonatorsGone = false;
+			break;
+		}
+		
 	}
-}
-
-public function Detonate () {
-	for( var detonate : DetonatorComponent in detonators) {
-		detonate.on = true;
+	
+	if(isAllDetonatorsGone) {
+		// Kills the game object
+		Destroy (gameObject);
 	}
 }
