@@ -3,6 +3,8 @@ public var explosion : ActivateExplosion;
 public var crater : Material;
 public var mineRenderer : Renderer;
 public var numberOfExplosions : int = 1;
+public var secondsBetweenEachExplosion : float = 1;
+private var lastTime : float = 0;
 
 function Start() {
 	// Check if the explosion variable is null
@@ -20,9 +22,13 @@ function Start() {
 
 function OnGUI() {
     var e : Event = Event.current;
-    if ((numberOfExplosions > 0) && e.isKey && (e.keyCode == key)) {
-		Instantiate(explosion, transform.position, Quaternion.identity);
+	var currentTime : float = Time.time;
+    if ((currentTime - lastTime > secondsBetweenEachExplosion) &&
+			(numberOfExplosions > 0) &&
+			e.isKey && (e.keyCode == key)) {
+		clone = Instantiate(explosion, transform.position, Quaternion.identity);
 		numberOfExplosions -= 1;
+		lastTime = currentTime;
 		if(numberOfExplosions <= 0) {
 			mineRenderer.material = crater;
 		}
