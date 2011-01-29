@@ -1,5 +1,5 @@
 public var key : KeyCode;
-public var explosion : GameObject;
+public var explosion : ActivateExplosion;
 private var mine : GameObject;
 
 function Start() {
@@ -8,7 +8,9 @@ function Start() {
 
 function OnGUI() {
     var e : Event = Event.current;
-    if (e.isKey && (e.keyCode == key)) {
-		// TODO: create the explosion instance
+    if (e.isKey && (e.keyCode == key) && (explosion != null)) {
+		var clone : ActivateExplosion =
+			Instantiate(explosion, transform.position, Quaternion.identity);
+		clone.Detonate();
     }
 }
