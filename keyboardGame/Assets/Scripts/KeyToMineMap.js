@@ -1,4 +1,5 @@
 public var key : KeyCode;
+public var explosion : GameObject;
 private var mine : GameObject;
 
 function Start() {
@@ -7,9 +8,7 @@ function Start() {
 
 function OnGUI() {
     var e : Event = Event.current;
-    if (e.isKey) {
-		if(e.keyCode == key) {
-			Debug.Log("key binding found");
-		}
+    if (e.isKey && (e.keyCode == key)) {
+		// TODO: create the explosion instance
     }
 }
