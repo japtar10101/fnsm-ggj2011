@@ -13,13 +13,13 @@ function Update() {
 		canonBall.transform.position = location;
 		canonBall.rigidbody.isKinematic = false;
 		ballDropped = true;
+		Debug.Log(hitTimes);
 		Debug.Log(location);
 	}
 }
 
 function GatherKey(point : Vector3) {
 	if(!ballDropped) {
-		Debug.Log("Got key");
 		location += point;
 		hitTimes += 1;
 		
