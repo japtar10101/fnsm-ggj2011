@@ -3,7 +3,7 @@ public var explosion : ActivateExplosion;
 public var crater : Material;
 public var mineRenderer : Renderer;
 public var numberOfExplosions : int = 1;
-public var secondsBetweenEachExplosion : float = 1;
+public var secondsBetweenEachExplosion : float = 0.5;
 private var lastTime : float = 0;
 
 function Start() {
