@@ -1,24 +1,30 @@
 public var key : KeyCode;
 public var explosion : ActivateExplosion;
-private var mine : GameObject;
+public var crater : Material;
+public var mineRenderer : Renderer;
+public var numberOfExplosions : int = 1;
 
 function Start() {
 	// Check if the explosion variable is null
-	if(explosion == null) {
+	if((explosion == null) || (crater == null) || (mineRenderer == null)) {
 		// If so, halt
 		Destroy (gameObject);
 	}
-	mine = gameObject;
+	
+	// Make sure the number of explosions is greater than 0
+	if(numberOfExplosions <= 0) {
+		numberOfExplosions = 0;
+		mineRenderer.material.mainTexture = crater;
+	}
 }
 
 function OnGUI() {
     var e : Event = Event.current;
-    if (e.isKey && (e.keyCode == key)) {
+    if ((numberOfExplosions > 0) && e.isKey && (e.keyCode == key)) {
 		Instantiate(explosion, transform.position, Quaternion.identity);
-		/*
-		var clone : ActivateExplosion =
-			Instantiate(explosion, transform.position, Quaternion.identity);
-		clone.Detonate();
-		*/
+		numberOfExplosions -= 1;
+		if(numberOfExplosions <= 0) {
+			mineRenderer.material = crater;
+		}
     }
 }
