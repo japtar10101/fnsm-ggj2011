@@ -1,2 +1,7 @@
 fileFormatVersion: 1
 guid: 928e10f0171586344978953f6357ea70
+MonoImporter:
+  importerVersion: 1
+  defaultReferences:
+    explosion: {fileID: 11400000, guid: 31b1aae5a2998dc43a627d4a107c57a4, type: 2}
+    crater: {fileID: 2100000, guid: 589c33fe79ede5444b73877a6649aef4, type: 2}
