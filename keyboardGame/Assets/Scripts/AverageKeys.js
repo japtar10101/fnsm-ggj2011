@@ -1,6 +1,7 @@
 public var keyCollectDuration : float = 0.5;
 public var canonBall : GameObject;
 public var ballDropped : boolean = false;
+public var speedModifier : float = 100;
 
 private var keyHit : boolean = false;
 private var startTime : float;
@@ -12,6 +13,7 @@ function Update() {
 		location /= hitTimes;
 		canonBall.transform.position = location;
 		canonBall.rigidbody.isKinematic = false;
+		canonBall.rigidbody.velocity = Vector3.down * Time.deltaTime * speedModifier;
 		ballDropped = true;
 		Debug.Log(hitTimes);
 		Debug.Log(location);
