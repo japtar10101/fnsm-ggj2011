@@ -11,5 +11,6 @@ function OnTriggerEnter (enemy : Collider) {
 		// decrease its health
 		Time.timeScale = slowDownTo;
 		slowedDown = true;
+		audio.Play();
 	}
 }
