@@ -36,7 +36,8 @@ function Update () {
 			changeState2to3();
 			break;
 		default:
-			transform.rotation.eulerAngles.y += spinSpeed * Time.deltaTime;
+			transform.RotateAround(pointOfImpact, Vector3.up,
+				spinSpeed * Time.deltaTime);
 			break;
 	}
 }
@@ -51,7 +52,7 @@ private function changeState2to3() {
 	if((Time.time - timeTrack) > thirdStateDuration) {
 		Debug.Log("Speed-up time");
 		state = 3;
-		Time.timeScale = 1;
+		Time.timeScale = 2;
 	}
 }
 
