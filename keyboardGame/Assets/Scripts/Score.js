@@ -17,3 +17,10 @@ function OnGUI () {
 		GUI.Box (boxSize, ScoreWall.score.ToString(), labelFont);
 	}
 }
+
+function OnTriggerEnter(collide : Collider){
+if(collide.CompareTag("Destructable")) {
+	var hit : Rigidbody= collide.attachedRigidbody;
+	ScoreWall.score += hit.mass;
+	}
+}
