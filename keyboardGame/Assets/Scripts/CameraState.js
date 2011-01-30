@@ -11,6 +11,9 @@ public var thirdTransform : Transform;
 public var thirdStateDuration : float = 3;
 
 public var spinSpeed : float = 10;
+public var spinDuration : float = 10;
+
+public var pauseDuration : float = 10;
 
 private var state : int = 0;
 private var pointOfImpact : Vector3;
@@ -35,11 +38,24 @@ function Update () {
 			positionCamera2();
 			changeState2to3();
 			break;
+/* 		case 3:
+ * 			positionCamera3();
+ * 			changeState3to4();
+ * 			break;
+ * 		case 4:
+ * 			positionCamera4();
+ * 			changeState4to5();
+ * 			break;
+ */
 		default:
-			transform.RotateAround(pointOfImpact, Vector3.up,
-				spinSpeed * Time.deltaTime);
+			
 			break;
 	}
+}
+
+private function positionCamera3() {
+	transform.RotateAround(pointOfImpact, Vector3.up,
+		spinSpeed * Time.deltaTime);
 }
 
 private function positionCamera2() {
@@ -52,7 +68,8 @@ private function changeState2to3() {
 	if((Time.time - timeTrack) > thirdStateDuration) {
 		Debug.Log("Speed-up time");
 		state = 3;
-		Time.timeScale = 2;
+		Time.timeScale = 1;
+		timeTrack = 1;
 	}
 }
 
