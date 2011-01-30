@@ -15,6 +15,7 @@ function Start() {
 }
 
 function OnGUI() {
+	Start();
 	switch(state) {
 		case 0:
 			DrawMenu();
