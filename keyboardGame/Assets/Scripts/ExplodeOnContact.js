@@ -6,6 +6,7 @@ function OnCollisionEnter(collision : Collision) {
 	if(!hasExploded) {
 		Instantiate(explosion, transform.position, Quaternion.identity);
 		hasExploded = true;
+		renderer.enabled = false;
 	}
 }
 
