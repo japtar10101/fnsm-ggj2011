@@ -6,7 +6,13 @@ public var secondState : ExplodeOnContact;
 public var secondTransform : Transform;
 public var secondXRotation : float = -30;
 
+public var zoomOutSpeed : float = 50;
+public var thirdTransform : Transform;
+public var thirdStateDuration : float = 3;
+
 private var state : int = 0;
+private var pointOfImpact : Vector3;
+private var timeTrack : float;
 
 function Start() {
 	transform.position = firstTransform.position;
@@ -23,6 +29,24 @@ function Update () {
 		  positionCamera1();
 		  changeState1to2();
 		  break;
+		case 2:
+		  positionCamera2();
+		  changeState2to3();
+		  break;
+	}
+}
+
+private function positionCamera2() {
+	var direction : Vector3 = thirdTransform.position - pointOfImpact;
+	direction.Normalize();
+	transform.position += (direction * zoomOutSpeed * Time.deltaTime);
+}
+
+private function changeState2to3() {
+	if((Time.time - timeTrack) > thirdStateDuration) {
+		Debug.Log("Speed-up time");
+		state = 3;
+		Time.timeScale = 1;
 	}
 }
 
@@ -34,7 +58,8 @@ private function positionCamera1() {
 private function changeState1to2() {
 	if(secondState.HasExploded()) {
 		state = 2;
-		//transform.rotation.eulerAngles.y = secondYRotation;
+		timeTrack = Time.time;
+		pointOfImpact = transform.position;
 	}
 }
 
