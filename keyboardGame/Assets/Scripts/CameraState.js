@@ -19,9 +19,6 @@ private var state : int = 0;
 private var pointOfImpact : Vector3;
 private var timeTrack : float;
 
-//public var asplodeAudio : AudioSource;
-
-
 function Start() {
 	transform.position = firstTransform.position;
 	transform.rotation.eulerAngles.x = firstXRotation;
@@ -48,21 +45,12 @@ function Update () {
 	}
 }
 
-private function showScore() {
-	//Debug.Log("TODO: show a label");
-}
-
 private function changeState3to4() {
 	if((Time.time - timeTrack) > spinDuration) {
-		// Show the score
-		Debug.Log("TODO: show a label");
-		Time.timeScale = 0;
-		showScore();
-		
-		// Jump right into the menu screen
-		yield WaitForSeconds(pauseDuration);
+		state = -1;
+		Score.showScore = false;
 		Time.timeScale = 1;
-		Debug.Log("TODO: jump right to the menu screen");
+		Application.LoadLevel(0);
 	}
 }
 
@@ -80,7 +68,6 @@ private function positionCamera2() {
 private function changeState2to3() {
 	if((Time.time - timeTrack) > thirdStateDuration) {
 		Debug.Log("Speed-up time");
-	//	asplodeAudio.Play(2000);
 		state = 3;
 		Time.timeScale = 1;
 		timeTrack = Time.time;
@@ -97,6 +84,7 @@ private function changeState1to2() {
 		state = 2;
 		timeTrack = Time.time;
 		pointOfImpact = transform.position;
+		Score.showScore = true;
 	}
 }
 
