@@ -7,6 +7,7 @@ function OnCollisionEnter(collision : Collision) {
 		Instantiate(explosion, transform.position, Quaternion.identity);
 		hasExploded = true;
 		renderer.enabled = false;
+		audio.Play();
 	}
 }
 
