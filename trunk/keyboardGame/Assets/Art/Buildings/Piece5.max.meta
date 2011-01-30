@@ -1,5 +1,5 @@
 fileFormatVersion: 1
-guid: 5f04032966c1fc7458f02e69d7778e96
+guid: d300ec185816fec47a0097aa8becb21d
 ModelImporter:
   importerVersion: 7
   meshes:
@@ -25,43 +25,10 @@ ModelImporter:
     //RootNode:
     - 100000
     - 400000
-    - 11100000
-    Box04:
-    - 100002
-    - 400002
     - 3300000
     - 2300000
-    Box03:
-    - 100004
-    - 400004
-    - 3300002
-    - 2300002
-    Box01:
-    - 100006
-    - 400006
-    - 3300004
-    - 2300004
-    Object01:
-    - 100008
-    - 400008
-    - 3300006
-    - 2300006
-    Box11:
-    - 100010
-    - 400010
-    - 3300008
-    - 2300008
-    NGon01:
-    - 100012
-    - 400012
-    - 3300010
-    - 2300010
+    - 11100000
 AssetImporter:
   importerVersion: 1
   fileIDToRecycleName:
     4300000: Box01
-    4300002: Box03
-    4300004: NGon01
-    4300006: Object01
-    4300008: Box04
-    4300010: Box11

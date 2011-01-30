@@ -1,5 +1,5 @@
 fileFormatVersion: 1
-guid: 3b674a38ec7fff5499ad45fc19e1b2ae
+guid: 62a1e5ed175ba0240899b7d77cd9d847
 ModelImporter:
   importerVersion: 7
   meshes:
@@ -22,46 +22,13 @@ ModelImporter:
     animationWrapMode: 0
     splitAnimations: 1
   nodeInfo:
-    NGon01:
+    //RootNode:
     - 100000
     - 400000
     - 3300000
     - 2300000
-    //RootNode:
-    - 100002
-    - 400002
     - 11100000
-    Box04:
-    - 100004
-    - 400004
-    - 3300002
-    - 2300002
-    Box03:
-    - 100006
-    - 400006
-    - 3300004
-    - 2300004
-    Box11:
-    - 100008
-    - 400008
-    - 3300006
-    - 2300006
-    Box01:
-    - 100010
-    - 400010
-    - 3300008
-    - 2300008
-    Object01:
-    - 100012
-    - 400012
-    - 3300010
-    - 2300010
 AssetImporter:
   importerVersion: 1
   fileIDToRecycleName:
-    4300000: Box01
-    4300002: Box03
-    4300004: NGon01
-    4300006: Object01
-    4300008: Box04
-    4300010: Box11
+    4300000: Object01
