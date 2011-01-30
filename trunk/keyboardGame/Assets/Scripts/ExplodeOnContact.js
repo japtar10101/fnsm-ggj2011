@@ -8,3 +8,7 @@ function OnCollisionEnter(collision : Collision) {
 		hasExploded = true;
 	}
 }
+
+function HasExploded() : boolean {
+	return hasExploded;
+}

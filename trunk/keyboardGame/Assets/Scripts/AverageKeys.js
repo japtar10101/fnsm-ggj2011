@@ -31,3 +31,7 @@ function GatherKey(point : Vector3) {
 		}
 	}
 }
+
+function IsBallDropped() : boolean {
+	return ballDropped;
+}
