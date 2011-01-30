@@ -10,6 +10,8 @@ public var zoomOutSpeed : float = 50;
 public var thirdTransform : Transform;
 public var thirdStateDuration : float = 3;
 
+public var spinSpeed : float = 10;
+
 private var state : int = 0;
 private var pointOfImpact : Vector3;
 private var timeTrack : float;
@@ -23,16 +25,19 @@ function Update () {
 	switch(state)
 	{
 		case 0:
-		  changeState0to1();
-		  break;
+			changeState0to1();
+			break;
 		case 1:
-		  positionCamera1();
-		  changeState1to2();
-		  break;
+			positionCamera1();
+			changeState1to2();
+			break;
 		case 2:
-		  positionCamera2();
-		  changeState2to3();
-		  break;
+			positionCamera2();
+			changeState2to3();
+			break;
+		default:
+			transform.rotation.eulerAngles.y += spinSpeed * Time.deltaTime;
+			break;
 	}
 }
 
