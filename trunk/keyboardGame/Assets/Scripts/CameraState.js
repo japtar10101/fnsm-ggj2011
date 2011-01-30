@@ -11,9 +11,9 @@ public var thirdTransform : Transform;
 public var thirdStateDuration : float = 3;
 
 public var spinSpeed : float = 10;
-public var spinDuration : float = 10;
+public var spinDuration : float = 30;
 
-public var pauseDuration : float = 10;
+public var pauseDuration : float = 20;
 
 private var state : int = 0;
 private var pointOfImpact : Vector3;
@@ -38,18 +38,28 @@ function Update () {
 			positionCamera2();
 			changeState2to3();
 			break;
-/* 		case 3:
- * 			positionCamera3();
- * 			changeState3to4();
- * 			break;
- * 		case 4:
- * 			positionCamera4();
- * 			changeState4to5();
- * 			break;
- */
-		default:
-			
+		case 3:
+			positionCamera3();
+			changeState3to4();
 			break;
+	}
+}
+
+private function showScore() {
+	//Debug.Log("TODO: show a label");
+}
+
+private function changeState3to4() {
+	if((Time.time - timeTrack) > spinDuration) {
+		// Show the score
+		Debug.Log("TODO: show a label");
+		Time.timeScale = 0;
+		showScore();
+		
+		// Jump right into the menu screen
+		yield WaitForSeconds(pauseDuration);
+		Time.timeScale = 1;
+		Debug.Log("TODO: jump right to the menu screen");
 	}
 }
 
@@ -69,7 +79,7 @@ private function changeState2to3() {
 		Debug.Log("Speed-up time");
 		state = 3;
 		Time.timeScale = 1;
-		timeTrack = 1;
+		timeTrack = Time.time;
 	}
 }
 
