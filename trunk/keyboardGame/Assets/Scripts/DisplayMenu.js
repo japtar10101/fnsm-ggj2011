@@ -1,31 +1,41 @@
-public var menu : Texture2D;
-public var manual : Texture2D;
-public var credits : Texture2D;
+public var menu : Texture;
+public var manual : Texture;
+public var credits : Texture;
 
 private var buttonPadding : int = 4;
 private var state : int = 0;
+private var buttonWidth : int;
+private var buttonHeight : int;
+
+function Start() {
+	buttonWidth =  Screen.width / 5;
+	buttonHeight = Screen.height / 10;
+}
 
 function OnGUI() {
 	var textureBounds : Rect = new Rect(0, 0, Screen.width, Screen.height);
+	var backgroundTexture : Texture;
+
 	switch(state) {
+		case 0:
+			backgroundTexture = menu;
+			break;
 		case 1:
-			GUI.DrawTexture(textureBounds, manual);
-			DrawBack();
+			backgroundTexture = manual;
 			break;
 		case 2:
-			GUI.DrawTexture(textureBounds, credits);
-			DrawBack();
-			break;
-		case 0:
-			GUI.DrawTexture(textureBounds, menu);
-			DrawMenu();
+			backgroundTexture = credits;
 			break;
 	}
+	
+	GUI.DrawTexture(textureBounds, backgroundTexture);
+	if(state == 0)
+		DrawMenu();
+	else
+		DrawBack();
 }
 
 private function DrawBack() {
-	var buttonWidth : int =  Screen.width / 4;
-	var buttonHeight : int = Screen.height / 8;
 	
 	var buttonBounds : Rect = new Rect(
 			(Screen.width - buttonWidth)/2,
@@ -41,9 +51,6 @@ private function DrawBack() {
 }
 
 private function DrawMenu() {
-	var buttonWidth : int =  Screen.width / 4;
-	var buttonHeight : int = Screen.height / 8;
-	
 	var buttonBounds : Rect = new Rect(
 			(Screen.width - buttonWidth)/2,
 			Screen.height - (buttonHeight + buttonPadding),
