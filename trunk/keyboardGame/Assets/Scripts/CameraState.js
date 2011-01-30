@@ -19,7 +19,7 @@ private var state : int = 0;
 private var pointOfImpact : Vector3;
 private var timeTrack : float;
 
-public var asplodeAudio : AudioSource;
+//public var asplodeAudio : AudioSource;
 
 
 function Start() {
@@ -80,7 +80,7 @@ private function positionCamera2() {
 private function changeState2to3() {
 	if((Time.time - timeTrack) > thirdStateDuration) {
 		Debug.Log("Speed-up time");
-		asplodeAudio.Play(2000);
+	//	asplodeAudio.Play(2000);
 		state = 3;
 		Time.timeScale = 1;
 		timeTrack = Time.time;
